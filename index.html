@@ -3,1218 +3,820 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wisitrix Edux - Masterclass & Exam Platform</title>
+    <title>ATHUL™ Ultimate Multi-Speed Soft Kisses Lipstick Remover - Amazon.in</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter & Noto Sans Malayalam -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
-    <!-- Canvas Confetti for Certificate Celebration -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            800: '#1e293b',
-                            900: '#0f172a',
-                            950: '#020617',
+                        amazon: {
+                            dark: '#131921',
+                            light: '#232f3e',
+                            yellow: '#f0c14b',
+                            yellowHover: '#f3a847',
+                            orange: '#ffa41c',
+                            orangeHover: '#fa8900',
+                            blue: '#007185',
+                            pink: '#e83e8c',
+                            rose: '#f43f5e'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'Noto Sans Malayalam', 'sans-serif'],
-                        malayalam: ['Noto Sans Malayalam', 'sans-serif'],
-                        serif: ['Cinzel', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
                     }
                 }
             }
         }
     </script>
-    
     <style>
-        body {
-            font-family: 'Inter', 'Noto Sans Malayalam', sans-serif;
-            background-color: #f8fafc;
-            color: #0f172a;
-            min-height: 100vh;
+        @keyframes floatHeart {
+            0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-120px) scale(1.3) rotate(20deg); opacity: 0; }
         }
-
-        /* High contrast White & Black containers */
-        .card-white {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        .floating-heart {
+            position: absolute;
+            animation: floatHeart 1.8s ease-out forwards;
+            pointer-events: none;
         }
-
-        .input-monochrome {
-            background: #ffffff;
-            border: 1px solid #cbd5e1;
-            color: #0f172a;
+        .amazon-btn-shadow {
+            box-shadow: 0 2px 5px rgba(213,217,217,.5);
         }
-        .input-monochrome:focus {
-            border-color: #000000;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
         }
-
-        /* Custom scrollbars */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 9999px;
         }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
+        .zoom-container {
+            overflow: hidden;
+            position: relative;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #0f172a;
-            border-radius: 4px;
+        .zoom-image {
+            transition: transform 0.3s ease;
         }
-
-        /* Certificate Print Styling */
-        @media print {
-            body * {
-                visibility: hidden;
-            }
-            #printableCertificate, #printableCertificate * {
-                visibility: visible;
-            }
-            #printableCertificate {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                margin: 0;
-                padding: 0;
-                box-shadow: none;
-                background: white !important;
-                color: black !important;
-            }
-            .no-print {
-                display: none !important;
-            }
+        .zoom-container:hover .zoom-image {
+            transform: scale(1.35);
+        }
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(244, 63, 94, 0.4); }
+            50% { transform: scale(1.02); box-shadow: 0 0 25px rgba(244, 63, 94, 0.8); }
+        }
+        .pulse-buy-now {
+            animation: pulseGlow 2s infinite ease-in-out;
         }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="bg-gray-100 text-gray-800 font-sans min-h-screen flex flex-col antialiased selection:bg-rose-200 selection:text-rose-800">
 
-    <!-- Top Navigation Header -->
-    <header class="bg-black text-white border-b border-neutral-800 sticky top-0 z-50 px-4 py-3 shadow-md">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Brand Logo -->
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-white text-black flex items-center justify-center shadow-md font-bold">
-                    <i class="fa-solid fa-graduation-cap text-xl"></i>
-                </div>
+    <!-- TOP AMAZON NAVIGATION BAR -->
+    <header class="bg-amazon-dark text-white text-sm sticky top-0 z-50 shadow-md">
+        <!-- Primary Nav Line -->
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-3 py-2 gap-2 sm:gap-4">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-1 border border-transparent hover:border-white p-1 rounded transition">
+                <span class="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center">
+                    Athul<span class="text-amazon-orange text-lg sm:text-xl font-extrabold italic">zon</span>.in
+                    <i class="fa-solid fa-heart text-rose-500 text-xs ml-1 animate-pulse"></i>
+                </span>
+                <span class="text-[10px] bg-rose-600 text-white font-semibold px-1.5 py-0.5 rounded-full ml-1">LOVE EDITION</span>
+            </a>
+
+            <!-- Deliver To Address -->
+            <div class="hidden md:flex items-center gap-1 border border-transparent hover:border-white p-1.5 rounded cursor-pointer text-xs">
+                <i class="fa-solid fa-location-dot text-amazon-orange text-base"></i>
                 <div>
-                    <h1 class="text-xl font-black tracking-tight text-white">Wisitrix Edux</h1>
-                    <p class="text-[11px] text-neutral-400 font-medium">Interactive Masterclass Portal</p>
+                    <p class="text-gray-300 text-[11px] leading-tight">Deliver to Your Lips</p>
+                    <p class="font-bold text-white leading-tight">Her Heart, 100001</p>
                 </div>
             </div>
 
-            <!-- Header Right Controls -->
-            <div class="flex items-center space-x-4">
-                <!-- Bilingual Toggle Button -->
-                <button id="langToggleBtn" onclick="toggleLanguage()" class="hidden px-3 py-1.5 rounded-lg text-xs font-semibold bg-neutral-900 text-neutral-200 border border-neutral-700 hover:bg-neutral-800 transition flex items-center space-x-2">
-                    <i class="fa-solid fa-language text-sm"></i>
-                    <span id="currentLangLabel">Language: EN / ML</span>
-                </button>
-
-                <!-- User Badge -->
-                <div id="userBadge" class="hidden flex items-center space-x-2 bg-neutral-900 px-3 py-1.5 rounded-full border border-neutral-800">
-                    <div class="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center text-xs font-bold">
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <span id="loggedInUserName" class="text-xs font-semibold text-neutral-200">athul</span>
-                    <button onclick="logout()" class="text-neutral-400 hover:text-red-400 text-xs ml-2 transition" title="Logout">
-                        <i class="fa-solid fa-right-from-bracket"></i>
+            <!-- Amazon Search Bar -->
+            <div class="flex-1 max-w-2xl flex items-center">
+                <div class="relative w-full flex">
+                    <button class="bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs px-3 py-2 rounded-l-md border-r border-gray-300 flex items-center gap-1 font-medium hidden sm:flex">
+                        All Kiss Types <i class="fa-solid fa-caret-down text-[10px]"></i>
+                    </button>
+                    <input type="text" value="ATHUL - Premium Romantic Lipstick Remover (100% Organic Kisses)" readonly
+                        class="w-full px-3 py-2 text-gray-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amazon-orange bg-white">
+                    <button class="bg-amazon-orange hover:bg-amazon-orangeHover text-gray-900 px-5 py-2 rounded-r-md transition flex items-center justify-center">
+                        <i class="fa-solid fa-magnifying-glass text-lg"></i>
                     </button>
                 </div>
             </div>
+
+            <!-- User Account / Romantic Stat -->
+            <div class="hidden lg:flex items-center gap-1 border border-transparent hover:border-white p-1.5 rounded cursor-pointer text-xs">
+                <div>
+                    <p class="text-gray-300 text-[11px] leading-tight">Hello, Gorgeous</p>
+                    <p class="font-bold text-white leading-tight">Account & Unlimited Kisses <i class="fa-solid fa-caret-down text-[10px]"></i></p>
+                </div>
+            </div>
+
+            <!-- Cart -->
+            <a href="#buy-now-section" class="flex items-center gap-1 border border-transparent hover:border-white p-1.5 rounded text-white relative">
+                <div class="relative">
+                    <i class="fa-solid fa-cart-shopping text-2xl text-white"></i>
+                    <span id="cart-count" class="absolute -top-1.5 right-1/2 translate-x-1/2 bg-amazon-orange text-gray-900 font-extrabold text-xs px-1.5 rounded-full">1</span>
+                </div>
+                <span class="font-bold text-xs hidden sm:inline mt-2">Cart</span>
+            </a>
+        </div>
+
+        <!-- Sub Navigation Bar -->
+        <div class="bg-amazon-light text-white text-xs px-3 py-1.5 flex items-center gap-4 overflow-x-auto whitespace-nowrap border-t border-gray-700 custom-scrollbar">
+            <span class="font-bold flex items-center gap-1 cursor-pointer hover:text-amazon-orange">
+                <i class="fa-solid fa-bars"></i> All Love Categories
+            </span>
+            <a href="#" class="hover:text-amazon-orange border border-transparent hover:border-white px-1.5 py-0.5 rounded">Today's Romantic Deals</a>
+            <a href="#" class="hover:text-amazon-orange border border-transparent hover:border-white px-1.5 py-0.5 rounded">Customer Service (Athul 24/7)</a>
+            <a href="#" class="hover:text-amazon-orange border border-transparent hover:border-white px-1.5 py-0.5 rounded">Registry of Cute Moments</a>
+            <a href="#" class="hover:text-amazon-orange border border-transparent hover:border-white px-1.5 py-0.5 rounded text-rose-300 font-semibold">
+                <i class="fa-solid fa-fire text-rose-500 mr-1"></i> #1 Best Seller in Girlfriend Care
+            </a>
         </div>
     </header>
 
-    <main class="flex-grow flex items-center justify-center p-4">
+    <!-- MAIN PRODUCT SECTION -->
+    <main class="max-w-7xl mx-auto w-full p-3 sm:p-6 flex-1">
         
-        <!-- ================= VIEW 1: LOGIN PAGE ================= -->
-        <section id="loginView" class="w-full max-w-md card-white rounded-2xl p-8 relative overflow-hidden my-auto border-t-4 border-t-black">
-            <div class="text-center mb-8">
-                <div class="w-16 h-16 bg-black text-white rounded-2xl mx-auto flex items-center justify-center mb-4 shadow-xl">
-                    <i class="fa-solid fa-lock text-2xl"></i>
-                </div>
-                <h2 class="text-2xl font-extrabold text-neutral-900">Portal Student Login</h2>
-                <p class="text-xs text-neutral-500 mt-1">Wisitrix Edux Entrepreneurship Masterclass</p>
-            </div>
+        <!-- Breadcrumb -->
+        <nav class="text-xs text-gray-500 mb-4 flex items-center flex-wrap gap-1">
+            <a href="#" class="hover:underline hover:text-amazon-orange">Beauty & Personal Care</a> &rsaquo;
+            <a href="#" class="hover:underline hover:text-amazon-orange">Makeup Removers</a> &rsaquo;
+            <a href="#" class="hover:underline hover:text-amazon-orange">Organic Boyfriends</a> &rsaquo;
+            <span class="text-gray-700 font-medium">ATHUL Edition</span>
+        </nav>
 
-            <!-- Login Error Message Banner -->
-            <div id="loginError" class="hidden mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center space-x-2">
-                <i class="fa-solid fa-circle-exclamation text-base flex-shrink-0"></i>
-                <span id="loginErrorText">Invalid username or password.</span>
-            </div>
-
-            <form onsubmit="handleLogin(event)" class="space-y-5">
-                <div>
-                    <label class="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-2">Username</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-neutral-400">
-                            <i class="fa-solid fa-user"></i>
-                        </span>
-                        <input type="text" id="usernameInput" required placeholder="Enter username" class="w-full pl-10 pr-4 py-3 rounded-xl input-monochrome text-sm transition">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-2">Password</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-neutral-400">
-                            <i class="fa-solid fa-key"></i>
-                        </span>
-                        <input type="password" id="passwordInput" required placeholder="Enter password" class="w-full pl-10 pr-4 py-3 rounded-xl input-monochrome text-sm transition">
-                    </div>
-                </div>
-
-                <button type="submit" class="w-full py-3.5 rounded-xl bg-black hover:bg-neutral-800 text-white font-bold text-sm shadow-lg transition transform active:scale-95 flex items-center justify-center space-x-2">
-                    <span>Sign In to Learning Portal</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </form>
-        </section>
-
-        <!-- ================= VIEW 2: VIDEO PLAYER PAGE ================= -->
-        <section id="videoView" class="hidden w-full max-w-4xl card-white rounded-2xl p-6 space-y-6">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-neutral-200 pb-4">
-                <div>
-                    <span class="bg-neutral-100 text-neutral-900 text-xs font-bold px-3 py-1 rounded-full border border-neutral-300">
-                        <i class="fa-solid fa-video mr-1"></i> Mandatory Masterclass Video
-                    </span>
-                    <h2 class="text-xl font-extrabold text-neutral-900 mt-2">How I Successfully Sold My Company at 21 & Made a Fortune!</h2>
-                    <p class="text-xs text-neutral-500">By Sharique Samsudheen | Startup Exits & Lessons</p>
-                </div>
-
-                <!-- Anti-skipping notice badge -->
-                <div class="bg-neutral-900 text-white border border-neutral-800 px-3 py-2 rounded-xl text-xs flex items-center space-x-2">
-                    <i class="fa-solid fa-shield-halved text-amber-400 text-base"></i>
-                    <div>
-                        <p class="font-bold">Anti-Cheat Enabled</p>
-                        <p class="text-[11px] text-neutral-300">Fast-forwarding & speed changes disabled.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- YouTube Embedded Player Container -->
-            <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black shadow-2xl border-2 border-neutral-900">
-                <div id="youtubePlayer" class="w-full h-full"></div>
-                
-                <!-- Anti-skipping notice overlay -->
-                <div id="seekWarning" class="hidden absolute top-4 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg border border-neutral-700 animate-bounce flex items-center space-x-2 z-10">
-                    <i class="fa-solid fa-triangle-exclamation text-amber-400"></i>
-                    <span>Forward seeking is locked! Please watch continuously.</span>
-                </div>
-            </div>
-
-            <!-- Video Watching Progress & Controls -->
-            <div class="space-y-2">
-                <div class="flex justify-between text-xs text-neutral-700 font-semibold">
-                    <span><i class="fa-solid fa-clock mr-1 text-black"></i> Video Watch Progress</span>
-                    <span id="progressText" class="font-mono text-black font-bold">0%</span>
-                </div>
-                <div class="w-full bg-neutral-200 rounded-full h-3 overflow-hidden border border-neutral-300">
-                    <div id="progressBar" class="bg-black h-3 rounded-full transition-all duration-300 w-0"></div>
-                </div>
-            </div>
-
-            <!-- Custom Safe Controls -->
-            <div class="flex items-center justify-between bg-neutral-50 p-4 rounded-xl border border-neutral-200">
-                <div class="flex items-center space-x-3">
-                    <button id="customPlayPauseBtn" onclick="toggleCustomPlay()" class="px-5 py-2.5 rounded-xl bg-black hover:bg-neutral-800 text-white font-bold text-xs flex items-center space-x-2 transition shadow-md">
-                        <i id="playIcon" class="fa-solid fa-play"></i>
-                        <span id="playText">Play Video</span>
-                    </button>
-                    <span id="playbackStatus" class="text-xs font-medium text-neutral-600">Status: Initializing</span>
-                </div>
-
-                <div class="text-xs text-neutral-600 font-medium flex items-center space-x-2">
-                    <i class="fa-solid fa-gauge-simple-high text-neutral-900"></i>
-                    <span>Playback Speed: <strong class="text-neutral-900">1.0x (Fixed)</strong></span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= VIEW 3: POST-VIDEO DECISION ================= -->
-        <section id="decisionView" class="hidden w-full max-w-xl card-white rounded-2xl p-8 text-center space-y-6">
-            <div class="w-20 h-20 bg-black text-white rounded-full flex items-center justify-center mx-auto text-3xl shadow-xl">
-                <i class="fa-solid fa-circle-check"></i>
-            </div>
-
-            <div class="space-y-2">
-                <h2 class="text-2xl font-extrabold text-neutral-900">Masterclass Completed!</h2>
-                <p class="text-neutral-600 text-sm">You have successfully finished the full entrepreneurship video lesson.</p>
-                <p class="text-xs font-bold text-neutral-800">What would you like to do next?</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                <button onclick="rewatchVideo()" class="p-4 rounded-xl bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 text-neutral-900 font-bold text-sm transition transform hover:-translate-y-0.5 flex flex-col items-center space-y-2">
-                    <i class="fa-solid fa-rotate-left text-2xl text-neutral-700"></i>
-                    <span>Rewatch Video</span>
-                    <span class="text-[11px] text-neutral-500 font-normal">Review lecture material again</span>
-                </button>
-
-                <button onclick="startExam()" class="p-4 rounded-xl bg-black hover:bg-neutral-800 text-white font-bold text-sm shadow-xl transition transform hover:-translate-y-0.5 flex flex-col items-center space-y-2">
-                    <i class="fa-solid fa-file-pen text-2xl text-amber-400"></i>
-                    <span>Take Final Exam</span>
-                    <span class="text-[11px] text-neutral-300 font-normal">25 Questions • Pass: 20/25</span>
-                </button>
-            </div>
-        </section>
-
-        <!-- ================= VIEW 4: QUIZ / EXAM PAGE ================= -->
-        <section id="examView" class="hidden w-full max-w-3xl card-white rounded-2xl p-6 sm:p-8 space-y-6">
-            <!-- Exam Header Bar -->
-            <div class="flex flex-wrap justify-between items-center gap-3 border-b border-neutral-200 pb-4">
-                <div>
-                    <span class="text-xs font-extrabold text-neutral-500 tracking-wider uppercase">Entrepreneurship Assessment</span>
-                    <h2 class="text-lg font-black text-neutral-900 flex items-center gap-2">
-                        <span>Wisitrix Edux Final Exam</span>
-                    </h2>
-                </div>
-
-                <!-- Question Counter & Lang button -->
-                <div class="flex items-center space-x-3">
-                    <span id="examCounter" class="bg-black text-white px-3 py-1 rounded-full text-xs font-mono font-bold">
-                        Q 1 / 25
-                    </span>
-                    <button onclick="toggleLanguage()" class="px-3 py-1 rounded-lg bg-neutral-100 text-neutral-900 hover:bg-neutral-200 border border-neutral-300 text-xs font-bold flex items-center space-x-1">
-                        <i class="fa-solid fa-language"></i>
-                        <span id="examLangBtnLabel">EN / ML</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Exam Overall Progress -->
-            <div class="space-y-1">
-                <div class="flex justify-between text-[11px] font-semibold text-neutral-600">
-                    <span>Exam Progress</span>
-                    <span id="examProgressPercent">0% Answered</span>
-                </div>
-                <div class="w-full bg-neutral-200 rounded-full h-2 overflow-hidden border border-neutral-300">
-                    <div id="examProgressBar" class="bg-black h-2 rounded-full transition-all duration-300 w-0"></div>
-                </div>
-            </div>
-
-            <!-- Question Box -->
-            <div class="bg-neutral-50 rounded-xl p-5 border border-neutral-200 space-y-4">
-                <!-- Question Text -->
-                <div class="space-y-1">
-                    <h3 id="questionTextEN" class="text-base sm:text-lg font-bold text-neutral-900 leading-relaxed">Loading Question...</h3>
-                    <p id="questionTextML" class="text-sm text-neutral-700 font-malayalam leading-relaxed">ചോദ്യം ലോഡ് ചെയ്യുന്നു...</p>
-                </div>
-
-                <!-- Context Hint Box Toggle -->
-                <div class="pt-2 border-t border-neutral-200">
-                    <button onclick="toggleHint()" class="text-xs text-neutral-900 font-bold hover:underline flex items-center space-x-1.5 focus:outline-none">
-                        <i class="fa-solid fa-lightbulb text-amber-500"></i>
-                        <span id="hintToggleBtnText">Show Video Hint / സൂചന കാണിക്കുക</span>
-                    </button>
-                    
-                    <div id="hintBox" class="hidden mt-2 p-3 rounded-lg bg-neutral-100 border border-neutral-300 text-neutral-800 text-xs space-y-1">
-                        <p id="hintTextEN" class="font-medium">Hint text will appear here.</p>
-                        <p id="hintTextML" class="text-neutral-700 font-malayalam">സൂചന ഇവിടെ കാണാം.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Options List -->
-            <div id="optionsContainer" class="space-y-3">
-                <!-- Dynamically rendered options -->
-            </div>
-
-            <!-- Navigation Controls -->
-            <div class="flex items-center justify-between pt-4 border-t border-neutral-200">
-                <button id="prevBtn" onclick="prevQuestion()" class="px-4 py-2.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-800 text-xs font-bold flex items-center space-x-2 border border-neutral-300 disabled:opacity-40 disabled:cursor-not-allowed">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>Previous</span>
-                </button>
-
-                <div class="flex items-center space-x-3">
-                    <button id="nextBtn" onclick="nextQuestion()" class="px-5 py-2.5 rounded-xl bg-black hover:bg-neutral-800 text-white text-xs font-bold flex items-center space-x-2 shadow-md">
-                        <span>Next</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-
-                    <button id="submitExamBtn" onclick="confirmSubmitExam()" class="hidden px-6 py-2.5 rounded-xl bg-black hover:bg-neutral-800 text-white text-xs font-extrabold shadow-lg flex items-center space-x-2 border-2 border-neutral-900">
-                        <i class="fa-solid fa-paper-plane text-amber-400"></i>
-                        <span>Submit Exam</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= VIEW 5: RESULT / SCORE PAGE ================= -->
-        <section id="resultView" class="hidden w-full max-w-lg card-white rounded-2xl p-8 text-center space-y-6">
-            <!-- Icon Indicator -->
-            <div id="resultIconBox" class="w-20 h-20 rounded-full flex items-center justify-center mx-auto text-4xl shadow-xl">
-                <!-- Dynamic Icon -->
-            </div>
-
-            <div class="space-y-2">
-                <h2 id="resultTitle" class="text-2xl font-black text-neutral-900">Exam Completed</h2>
-                <p id="resultSubtitle" class="text-neutral-600 text-sm">Here is your assessment summary.</p>
-            </div>
-
-            <!-- Score Badge Container -->
-            <div class="bg-neutral-900 text-white rounded-2xl p-6 space-y-3 shadow-lg">
-                <div class="text-xs uppercase tracking-wider text-neutral-400 font-bold">Final Exam Score</div>
-                <div class="text-5xl font-black font-mono">
-                    <span id="scoreObtained">0</span> <span class="text-2xl text-neutral-500">/ 25</span>
-                </div>
-                <div id="percentageBadge" class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-neutral-800 text-neutral-200 border border-neutral-700">
-                    0% Percentage
-                </div>
-            </div>
-
-            <!-- Fail Message & Rewatch Prompt -->
-            <div id="failContainer" class="hidden space-y-4">
-                <div class="p-4 rounded-xl bg-neutral-100 border border-neutral-300 text-neutral-900 text-xs space-y-1 text-left">
-                    <p class="font-bold flex items-center gap-1.5 text-neutral-900">
-                        <i class="fa-solid fa-triangle-exclamation text-amber-500 text-sm"></i> Passing Requirement Not Met
-                    </p>
-                    <p>You need at least <strong>20 out of 25 (80%)</strong> to pass and earn your completion certificate.</p>
-                </div>
-
-                <button onclick="rewatchAndRetry()" class="w-full py-3.5 rounded-xl bg-black hover:bg-neutral-800 text-white font-bold text-sm shadow-xl transition flex items-center justify-center space-x-2">
-                    <i class="fa-solid fa-rotate-left"></i>
-                    <span>Rewatch Video & Retake Exam</span>
-                </button>
-            </div>
-
-            <!-- Pass Message & View Certificate Button -->
-            <div id="passContainer" class="hidden space-y-4">
-                <div class="p-4 rounded-xl bg-neutral-100 border border-neutral-300 text-neutral-900 text-xs space-y-1 text-left">
-                    <p class="font-bold flex items-center gap-1.5 text-black">
-                        <i class="fa-solid fa-award text-amber-500 text-sm"></i> Congratulations! You Passed!
-                    </p>
-                    <p>You have met the passing threshold (20+ correct answers). Your official Wisitrix Edux certificate is ready!</p>
-                </div>
-
-                <button onclick="showCertificate()" class="w-full py-3.5 rounded-xl bg-black hover:bg-neutral-800 text-white font-black text-sm shadow-xl transition flex items-center justify-center space-x-2 border-2 border-amber-400">
-                    <i class="fa-solid fa-certificate text-lg text-amber-400"></i>
-                    <span>View & Download Certificate</span>
-                </button>
-            </div>
-        </section>
-
-        <!-- ================= VIEW 6: CERTIFICATE PAGE ================= -->
-        <section id="certificateView" class="hidden w-full max-w-4xl space-y-6">
+        <!-- Product Grid -->
+        <div class="bg-white rounded-lg p-4 sm:p-6 shadow-sm border border-gray-200 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
             
-            <!-- Actions Toolbar (No Print) -->
-            <div class="no-print flex flex-wrap justify-between items-center gap-3 bg-black text-white p-4 rounded-2xl shadow-xl">
-                <div class="text-xs font-semibold">
-                    <i class="fa-solid fa-award text-amber-400 mr-1"></i>
-                    Official Certificate Issued for <strong class="text-amber-300">Athul Krishna</strong>
-                </div>
-
-                <div class="flex items-center space-x-3">
-                    <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-white text-black hover:bg-neutral-200 font-black text-xs flex items-center space-x-2 shadow-lg transition">
-                        <i class="fa-solid fa-print"></i>
-                        <span>Print / Save as PDF</span>
-                    </button>
-
-                    <button onclick="rewatchVideo()" class="px-4 py-2 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-bold flex items-center space-x-2 transition border border-neutral-700">
-                        <i class="fa-solid fa-house"></i>
-                        <span>Return to Home</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Printable Certificate Box -->
-            <div id="printableCertificate" class="bg-white text-black rounded-2xl p-8 sm:p-12 border-[10px] border-black relative overflow-hidden shadow-2xl space-y-8">
-                <!-- Decorative Corner Accents -->
-                <div class="absolute top-0 left-0 w-24 h-24 border-t-8 border-l-8 border-black m-3"></div>
-                <div class="absolute top-0 right-0 w-24 h-24 border-t-8 border-r-8 border-black m-3"></div>
-                <div class="absolute bottom-0 left-0 w-24 h-24 border-b-8 border-l-8 border-black m-3"></div>
-                <div class="absolute bottom-0 right-0 w-24 h-24 border-b-8 border-r-8 border-black m-3"></div>
-
-                <!-- Certificate Header -->
-                <div class="text-center space-y-3 pt-4">
-                    <div class="w-16 h-16 bg-black text-amber-400 rounded-full mx-auto flex items-center justify-center shadow-xl text-2xl font-bold border-2 border-amber-400">
-                        <i class="fa-solid fa-award"></i>
-                    </div>
-                    <p class="text-black font-serif tracking-widest uppercase text-xs font-bold">Wisitrix Edux Certification Board</p>
-                    <h1 class="text-3xl sm:text-5xl font-serif font-black text-black tracking-wide uppercase">Certificate of Completion</h1>
-                    <p class="text-xs text-neutral-600 uppercase tracking-widest font-semibold">This is to officially certify that</p>
-                </div>
-
-                <!-- Recipient Name -->
-                <div class="text-center my-6">
-                    <h2 class="text-3xl sm:text-5xl font-black text-black underline decoration-black underline-offset-8">
-                        Athul Krishna
-                    </h2>
-                    <p class="text-neutral-700 text-sm mt-4 max-w-xl mx-auto leading-relaxed">
-                        has successfully completed the comprehensive video masterclass and passed the rigorous evaluation exam on
-                    </p>
-                    <h3 class="text-lg font-bold text-black mt-2">
-                        "Entrepreneurship, Hyperlocal Growth & Startup Acquisition Strategy"
-                    </h3>
-                    <p class="text-xs text-neutral-500 mt-1">Based on the Case Study of Sharique Samsudheen (Selling Dyscover at Age 21)</p>
-                </div>
-
-                <!-- Certificate Details Footer Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t-2 border-black text-center items-center">
-                    <div>
-                        <p class="text-[11px] text-neutral-500 uppercase tracking-wider font-bold">Issued Date</p>
-                        <p id="certIssueDate" class="text-xs font-black text-black">August 3, 2026</p>
-                    </div>
-
-                    <div class="flex flex-col items-center">
-                        <div class="w-16 h-16 border-2 border-black rounded-full flex items-center justify-center p-1 bg-neutral-100">
-                            <div class="w-full h-full border border-dashed border-black rounded-full flex items-center justify-center text-[10px] text-black font-black tracking-tighter uppercase text-center leading-tight">
-                                Official<br>Verified
-                            </div>
+            <!-- LEFT COLUMN: IMAGE GALLERY (4 cols on lg) -->
+            <div class="lg:col-span-5 flex flex-col md:flex-row-reverse gap-4">
+                <!-- Main Showcase Image -->
+                <div class="flex-1 flex flex-col items-center">
+                    <div class="zoom-container relative w-full h-[360px] sm:h-[450px] bg-gray-50 rounded-lg border border-gray-200 flex items-center justify-center p-2 group cursor-zoom-in shadow-inner">
+                        <img id="main-product-image" src="1.jpg" alt="ATHUL - Premium Lipstick Remover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/131921/FFFFFF?text=ATHUL+Lipstick+Remover\n(1.jpg)';"
+                            class="zoom-image max-h-full max-w-full object-contain rounded transition duration-300">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute top-3 left-3 bg-rose-600 text-white font-bold text-xs px-2.5 py-1 rounded-full shadow flex items-center gap-1">
+                            <i class="fa-solid fa-heart text-white"></i> 100% Girlfriend Approved
                         </div>
-                        <p class="text-[10px] text-neutral-600 font-mono font-bold mt-1">ID: WX-2026-ATHUL-21</p>
+
+                        <!-- Zoom hint -->
+                        <div class="absolute bottom-3 right-3 bg-black/60 text-white text-[10px] px-2 py-1 rounded backdrop-blur-sm opacity-80 group-hover:opacity-100 transition">
+                            <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Hover to zoom cute face
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2 text-center italic">
+                        <i class="fa-solid fa-camera text-rose-400 mr-1"></i> Actual live product photos of your boyfriend ATHUL in action.
+                    </p>
+                </div>
+
+                <!-- Thumbnails -->
+                <div class="flex md:flex-col gap-2.5 overflow-x-auto md:overflow-visible justify-center pb-2 md:pb-0">
+                    <button onclick="switchImage('1.jpg', this)" class="thumb-btn border-2 border-amazon-orange rounded-md p-1 w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 bg-white hover:opacity-90 transition focus:outline-none shadow-sm">
+                        <img src="1.jpg" onerror="this.onerror=null; this.src='https://placehold.co/150x150/131921/FFFFFF?text=1.jpg';" class="w-full h-full object-cover rounded" alt="Thumbnail 1">
+                    </button>
+                    <button onclick="switchImage('2.jpg', this)" class="thumb-btn border-2 border-gray-200 hover:border-amazon-orange rounded-md p-1 w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 bg-white hover:opacity-90 transition focus:outline-none shadow-sm">
+                        <img src="2.jpg" onerror="this.onerror=null; this.src='https://placehold.co/150x150/232f3e/FFFFFF?text=2.jpg';" class="w-full h-full object-cover rounded" alt="Thumbnail 2">
+                    </button>
+                    <button onclick="switchImage('3.jpg', this)" class="thumb-btn border-2 border-gray-200 hover:border-amazon-orange rounded-md p-1 w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 bg-white hover:opacity-90 transition focus:outline-none shadow-sm">
+                        <img src="3.jpg" onerror="this.onerror=null; this.src='https://placehold.co/150x150/007185/FFFFFF?text=3.jpg';" class="w-full h-full object-cover rounded" alt="Thumbnail 3">
+                    </button>
+                    <button onclick="switchImage('4.jpg', this)" class="thumb-btn border-2 border-gray-200 hover:border-amazon-orange rounded-md p-1 w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 bg-white hover:opacity-90 transition focus:outline-none shadow-sm">
+                        <img src="4.jpg" onerror="this.onerror=null; this.src='https://placehold.co/150x150/f0c14b/131921?text=4.jpg';" class="w-full h-full object-cover rounded" alt="Thumbnail 4">
+                    </button>
+                </div>
+            </div>
+
+            <!-- MIDDLE COLUMN: PRODUCT DETAILS (4 cols on lg) -->
+            <div class="lg:col-span-4 flex flex-col">
+                <a href="#" class="text-amazon-blue hover:underline text-xs sm:text-sm font-semibold mb-1">
+                    Visit the ATHUL Love Store &rsaquo;
+                </a>
+                
+                <h1 class="text-xl sm:text-2xl font-bold text-gray-900 leading-tight mb-2">
+                    ATHUL™ Organic Multi-Speed Soft Kisses Lipstick Remover & Hug Dispenser (Limited Boyfriend Edition)
+                </h1>
+
+                <!-- Rating -->
+                <div class="flex items-center gap-2 mb-3 pb-3 border-b border-gray-200">
+                    <div class="flex text-amazon-orange text-sm">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="text-amazon-blue hover:underline text-xs font-semibold cursor-pointer">5.0 out of 5 stars</span>
+                    <span class="text-gray-400 text-xs">|</span>
+                    <a href="#reviews" class="text-amazon-blue hover:underline text-xs">1,000,000+ Girlfriend Ratings</a>
+                </div>
+
+                <!-- Price Tag & Amazon Prime -->
+                <div class="bg-rose-50 border border-rose-200 rounded-lg p-3 mb-4">
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-rose-600 text-xs font-bold uppercase tracking-wider">Priceless Offer</span>
+                        <span class="text-2xl sm:text-3xl font-extrabold text-gray-900">₹0.00</span>
+                        <span class="text-xs text-gray-500 line-through">₹99,999,999</span>
+                        <span class="text-xs font-bold text-rose-600">(-100% OFF)</span>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
+                        <i class="fa-solid fa-check text-green-600 font-bold"></i> Inclusive of unlimited hugs, late-night chats & forehead kisses.
+                    </p>
+                    <div class="mt-2 flex items-center gap-2">
+                        <span class="bg-amazon-light text-white text-[10px] font-extrabold px-2 py-0.5 rounded italic">
+                            <i class="fa-solid fa-bolt text-amazon-yellow mr-0.5"></i> prime
+                        </span>
+                        <span class="text-xs text-gray-700 font-semibold">FREE Instant Delivery to your lips</span>
+                    </div>
+                </div>
+
+                <!-- Flirty Key Bullet Points -->
+                <div class="space-y-2.5 text-xs sm:text-sm text-gray-700 mb-6">
+                    <h3 class="font-bold text-gray-900 text-sm">About this Boyfriend Item:</h3>
+                    
+                    <ul class="space-y-2 list-none pl-0">
+                        <li class="flex items-start gap-2">
+                            <span class="text-rose-500 font-bold">💋</span>
+                            <span><strong>Zero Chemical Formula:</strong> Removes 100% of all lipstick shades (matte, glossy, or waterproof) strictly using soft, warm, loving kisses.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-rose-500 font-bold">💖</span>
+                            <span><strong>Customizable Intensity:</strong> Features 3 adjustable settings: <em>Soft Peck</em>, <em>Passionate Smooth</em>, and <em>Ticklish Lip Bite</em> mode.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-rose-500 font-bold">🔥</span>
+                            <span><strong>Instant One-Touch Dispatch:</strong> Click <strong>BUY NOW</strong> to directly dial Athul at <strong class="text-amazon-blue">+91 89437 96622</strong> for immediate lip-cleansing house calls.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-rose-500 font-bold">🥰</span>
+                            <span><strong>Multifunctional Performance:</strong> Doubles as a cozy cuddle pillow, complement generator, food orderer, and master back-rub artist.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-rose-500 font-bold">🔋</span>
+                            <span><strong>Rechargeable Battery:</strong> Powered 100% by your adorable smile, dark chocolates, and holding hands.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Interactive Kiss Intensity Selector -->
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 mb-4">
+                    <label class="block text-xs font-bold text-gray-800 mb-2">
+                        <i class="fa-solid fa-sliders text-rose-500 mr-1"></i> Select Lipstick Removal Mode:
+                    </label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button onclick="selectMode(this, 'Soft Gentle Kiss')" class="mode-btn active border-2 border-rose-500 bg-rose-50 text-rose-700 text-xs font-bold py-1.5 px-2 rounded text-center transition">
+                            Soft Gentle
+                        </button>
+                        <button onclick="selectMode(this, 'Deep Romantic')" class="mode-btn border-2 border-gray-200 bg-white text-gray-700 hover:border-rose-300 text-xs font-bold py-1.5 px-2 rounded text-center transition">
+                            Deep Romantic
+                        </button>
+                        <button onclick="selectMode(this, 'Cute Forehead Bonus')" class="mode-btn border-2 border-gray-200 bg-white text-gray-700 hover:border-rose-300 text-xs font-bold py-1.5 px-2 rounded text-center transition">
+                            Forehead Bonus
+                        </button>
+                    </div>
+                    <p id="selected-mode-text" class="text-[11px] text-gray-500 mt-2 italic text-center">
+                        Selected: Soft Gentle Kiss Mode (Leaves a sweet blush on your cheeks!)
+                    </p>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: BUY BOX (3 cols on lg) -->
+            <div id="buy-now-section" class="lg:col-span-3">
+                <div class="border-2 border-rose-300 rounded-xl p-4 bg-white shadow-md relative overflow-hidden sticky top-20">
+                    <div class="absolute -right-10 -top-10 w-24 h-24 bg-rose-100 rounded-full blur-xl pointer-events-none"></div>
+
+                    <div class="text-2xl font-extrabold text-gray-900 mb-1">
+                        FREE
+                        <span class="text-xs font-normal text-gray-500">with unlimited love</span>
                     </div>
 
-                    <div>
-                        <p class="text-[11px] text-neutral-500 uppercase tracking-wider font-bold">Exam Status</p>
-                        <p id="certScoreDisplay" class="text-xs font-black text-black">Passed with Distinction</p>
+                    <p class="text-xs text-amazon-blue font-semibold mb-3 flex items-center gap-1">
+                        <i class="fa-solid fa-location-dot"></i> Deliver to Girlfriend's Lips
+                    </p>
+
+                    <div class="text-xs text-green-700 font-bold mb-3 flex items-center gap-1.5 bg-green-50 p-2 rounded border border-green-200">
+                        <span class="w-2 h-2 rounded-full bg-green-600 animate-ping"></span>
+                        IN STOCK (ONLY 1 ATHUL IN THE WORLD)
+                    </div>
+
+                    <p class="text-xs text-gray-600 mb-4">
+                        Ships from: <strong class="text-gray-900">Athul's Heart</strong><br>
+                        Sold by: <strong class="text-gray-900">Athul Official Store</strong>
+                    </p>
+
+                    <!-- Quantity Selector -->
+                    <div class="mb-4">
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Quantity:</label>
+                        <select class="w-full border border-gray-300 rounded-md p-1.5 text-xs bg-gray-50 font-bold text-gray-800 focus:outline-none focus:ring-1 focus:ring-amazon-orange">
+                            <option>1 (Forever Mine)</option>
+                        </select>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-3">
+                        <!-- Add to Cart -->
+                        <button onclick="handleAddToCart(event)" class="w-full bg-amazon-yellow hover:bg-amazon-yellowHover text-gray-900 font-semibold py-2.5 px-4 rounded-full text-xs transition shadow border border-yellow-500 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus text-sm"></i> Add to Heart Cart
+                        </button>
+
+                        <!-- BUY NOW BUTTON (Primary Call Action) -->
+                        <a href="tel:+918943796622" onclick="handleBuyNowCall(event)" class="pulse-buy-now block w-full bg-amazon-orange hover:bg-amazon-orangeHover text-gray-900 font-bold py-3 px-4 rounded-full text-xs sm:text-sm text-center transition shadow-md border border-orange-600 flex items-center justify-center gap-2 text-decoration-none">
+                            <i class="fa-solid fa-phone-volume text-base animate-bounce"></i> 
+                            BUY NOW
+                        </a>
+                    </div>
+
+                    <p class="text-[10px] text-gray-500 text-center mt-3">
+                        <i class="fa-solid fa-lock text-gray-400"></i> Secure Romantic Transaction. Clicking Buy Now dials <strong>+91 89437 96622</strong> directly.
+                    </p>
+
+                    <!-- Special Offer Banner inside Buy Box -->
+                    <div class="mt-4 pt-3 border-t border-gray-200 text-center">
+                        <span class="text-[11px] font-bold text-rose-600 bg-rose-50 px-2 py-1 rounded border border-rose-200 inline-block">
+                            🎁 Coupon: Free Kisses on First Order
+                        </span>
                     </div>
                 </div>
             </div>
-        </section>
+
+        </div>
+
+        <!-- DETAILED PRODUCT SPECIFICATIONS & FUN COMPARISON -->
+        <div class="mt-8 bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+            <h2 class="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200 flex items-center gap-2">
+                <i class="fa-solid fa-clipboard-list text-amazon-blue"></i> Technical Specifications & Boyfriend Attributes
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <table class="w-full text-xs sm:text-sm text-left">
+                    <tbody>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-2.5 font-bold text-gray-600 bg-gray-50 px-3 w-1/3">Brand Name</td>
+                            <td class="py-2.5 px-3 text-gray-900 font-medium">ATHUL™ (Original & Rare)</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-2.5 font-bold text-gray-600 bg-gray-50 px-3">Lipstick Removal Speed</td>
+                            <td class="py-2.5 px-3 text-gray-900 font-medium">0.5 Seconds per kiss</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-2.5 font-bold text-gray-600 bg-gray-50 px-3">Hug Softness Rating</td>
+                            <td class="py-2.5 px-3 text-gray-900 font-medium">10/10 Cozy Cloud Grade</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-2.5 font-bold text-gray-600 bg-gray-50 px-3">Direct Phone Hotline</td>
+                            <td class="py-2.5 px-3 text-amazon-blue font-bold">+91 89437 96622</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="w-full text-xs sm:text-sm text-left">
+                    <tbody>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-2.5 font-bold text-gray-600 bg-gray-50 px-3 w-1/3">Side Effects</td>
+                            <td class="py-2.5 px-3 text-gray-900 font-medium">Extreme blushing, uncontrollable smiling, butterflies in stomach</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-2.5 font-bold text-gray-600 bg-gray-50 px-3">Warranty</td>
+                            <td class="py-2.5 px-3 text-gray-900 font-medium">Lifetime Unconditional Love Warranty</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-2.5 font-bold text-gray-600 bg-gray-50 px-3">Dermatology Test</td>
+                            <td class="py-2.5 px-3 text-gray-900 font-medium">100% Tested & Approved on Her Lips</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-2.5 font-bold text-gray-600 bg-gray-50 px-3">Battery Recharge</td>
+                            <td class="py-2.5 px-3 text-gray-900 font-medium">Requires holding hands & warm hugs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- CUSTOMER REVIEWS SECTION -->
+        <div id="reviews" class="mt-8 bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Review Summary Column -->
+                <div class="lg:col-span-4">
+                    <h2 class="text-xl font-bold text-gray-900 mb-2">Customer Reviews</h2>
+                    
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="flex text-amazon-orange text-lg">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="font-bold text-gray-900 text-lg">5.0 out of 5</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mb-4">1,000,000 global ratings from His Favorite Girl</p>
+
+                    <!-- Rating Bars -->
+                    <div class="space-y-2 text-xs">
+                        <div class="flex items-center gap-2">
+                            <span class="w-12 text-amazon-blue hover:underline cursor-pointer">5 star</span>
+                            <div class="flex-1 bg-gray-200 rounded-full h-4 overflow-hidden">
+                                <div class="bg-amazon-orange h-full w-full"></div>
+                            </div>
+                            <span class="w-8 text-right text-amazon-blue font-bold">100%</span>
+                        </div>
+                        <div class="flex items-center gap-2 opacity-50">
+                            <span class="w-12">4 star</span>
+                            <div class="flex-1 bg-gray-200 rounded-full h-4"></div>
+                            <span class="w-8 text-right">0%</span>
+                        </div>
+                        <div class="flex items-center gap-2 opacity-50">
+                            <span class="w-12">3 star</span>
+                            <div class="flex-1 bg-gray-200 rounded-full h-4"></div>
+                            <span class="w-8 text-right">0%</span>
+                        </div>
+                        <div class="flex items-center gap-2 opacity-50">
+                            <span class="w-12">2 star</span>
+                            <div class="flex-1 bg-gray-200 rounded-full h-4"></div>
+                            <span class="w-8 text-right">0%</span>
+                        </div>
+                        <div class="flex items-center gap-2 opacity-50">
+                            <span class="w-12">1 star</span>
+                            <div class="flex-1 bg-gray-200 rounded-full h-4"></div>
+                            <span class="w-8 text-right">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-gray-200">
+                        <h3 class="font-bold text-sm text-gray-900 mb-2">Review this product</h3>
+                        <p class="text-xs text-gray-600 mb-3">Share your cute thoughts with Athul!</p>
+                        <button onclick="toggleReviewModal()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 border border-gray-300 font-semibold py-2 px-4 rounded-md text-xs transition">
+                            Write a Girlfriend Review
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Reviews Feed -->
+                <div class="lg:col-span-8 space-y-6" id="reviews-container">
+                    <h3 class="text-base font-bold text-gray-900 pb-2 border-b border-gray-200">
+                        Top Reviews from His Girl
+                    </h3>
+
+                    <!-- Review Item 1 -->
+                    <div class="space-y-2 border-b border-gray-100 pb-4">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 bg-rose-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                GF
+                            </div>
+                            <span class="text-xs font-bold text-gray-900">His Gorgeous Girlfriend</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs">
+                            <div class="flex text-amazon-orange">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="font-bold text-gray-900">BEST LIPSTICK REMOVER EVER INVENTED!</span>
+                        </div>
+                        <p class="text-xs text-gray-500">Reviewed in India on August 7, 2026</p>
+                        <span class="inline-block text-[10px] font-bold text-amazon-orange bg-orange-50 px-1.5 py-0.5 rounded border border-orange-200">
+                            Verified Girlfriend Purchase
+                        </span>
+                        <p class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+                            I put on my darkest red lipstick, hit the Buy Now button to call Athul, and within seconds he was right there! Not only did he remove my lipstick completely with gentle kisses, but he also brought snacks and hugged me tight. 100/10 would buy again!
+                        </p>
+                    </div>
+
+                    <!-- Review Item 2 -->
+                    <div class="space-y-2 border-b border-gray-100 pb-4">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 bg-amazon-blue rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                ❤️
+                            </div>
+                            <span class="text-xs font-bold text-gray-900">The Luckiest Girl Alive</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs">
+                            <div class="flex text-amazon-orange">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="font-bold text-gray-900">Warning: Highly Addictive Boyfriend!</span>
+                        </div>
+                        <p class="text-xs text-gray-500">Reviewed in India</p>
+                        <span class="inline-block text-[10px] font-bold text-amazon-orange bg-orange-50 px-1.5 py-0.5 rounded border border-orange-200">
+                            Verified Lifetime Owner
+                        </span>
+                        <p class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+                            Works 100 times better than micellar water! Athul's soft kisses leave my lips feeling super soft. Plus he always whispers sweet things in my ear while doing it. Never returning this product!
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
     </main>
 
-    <footer class="bg-black text-white border-t border-neutral-800 py-4 px-4 text-center text-xs text-neutral-400">
-        <p>© 2026 Wisitrix Edux. All rights reserved. Interactive Entrepreneurship Learning Portal.</p>
+    <!-- AMAZON FOOTER -->
+    <footer class="bg-amazon-light text-white text-xs mt-12">
+        <a href="#" class="block bg-gray-700 hover:bg-gray-600 text-center py-3 font-semibold text-gray-200 transition">
+            Back to top
+        </a>
+        <div class="max-w-7xl mx-auto p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 border-b border-gray-700">
+            <div>
+                <h4 class="font-bold text-sm mb-2 text-white">Get to Know Athul</h4>
+                <ul class="space-y-1.5 text-gray-300">
+                    <li><a href="#" class="hover:underline">About Athul's Love</a></li>
+                    <li><a href="#" class="hover:underline">His Cute Smile</a></li>
+                    <li><a href="#" class="hover:underline">Why He Loves You</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm mb-2 text-white">Connect with Athul</h4>
+                <ul class="space-y-1.5 text-gray-300">
+                    <li><a href="tel:+918943796622" class="hover:underline font-bold text-amazon-orange"><i class="fa-solid fa-phone"></i> Direct Call: +91 89437 96622</a></li>
+                    <li><a href="#" class="hover:underline">WhatsApp Messaging</a></li>
+                    <li><a href="#" class="hover:underline">Late Night Hug Hotline</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm mb-2 text-white">Athul Payment Products</h4>
+                <ul class="space-y-1.5 text-gray-300">
+                    <li><a href="#" class="hover:underline">Pay with Kisses</a></li>
+                    <li><a href="#" class="hover:underline">Pay with Cuddles</a></li>
+                    <li><a href="#" class="hover:underline">Unlimited Love Points</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm mb-2 text-white">Let Us Help You</h4>
+                <ul class="space-y-1.5 text-gray-300">
+                    <li><a href="#" class="hover:underline">Your Heart Account</a></li>
+                    <li><a href="#" class="hover:underline">100% Girlfriend Protection</a></li>
+                    <li><a href="#" class="hover:underline">Help & Support</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bg-amazon-dark py-6 text-center text-gray-400">
+            <p class="font-bold text-white text-base mb-1">
+                Athul<span class="text-amazon-orange italic">zon</span>.in
+            </p>
+            <p class="text-[11px]">© 2026, Athulzon.in, Inc. or its affiliates. Specially handcrafted with love for Athul & His Girlfriend ❤️</p>
+        </div>
     </footer>
 
-    <!-- Load YouTube Iframe API -->
-    <script src="https://www.youtube.com/iframe_api"></script>
+    <!-- INTERACTIVE CALL & BUY NOW OVERLAY MODAL -->
+    <div id="call-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 text-center shadow-2xl relative border-4 border-rose-400 animate-bounce-once">
+            <button onclick="closeModal('call-modal')" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="w-20 h-20 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4 text-rose-500 text-3xl animate-pulse">
+                <i class="fa-solid fa-phone-volume"></i>
+            </div>
 
+            <h3 class="text-xl font-extrabold text-gray-900 mb-1">Calling Athul...</h3>
+            <p class="text-xs text-rose-600 font-semibold mb-4">Lipstick Remover Dispatch Activated!</p>
+
+            <div class="bg-rose-50 p-3 rounded-lg border border-rose-200 mb-4 text-xs text-gray-700">
+                <p class="font-bold text-gray-900">Direct Number:</p>
+                <p class="text-base font-extrabold text-amazon-blue tracking-wider my-1">+91 89437 96622</p>
+                <p class="italic text-[11px] text-gray-500">Get ready for your soft kisses & warm hug delivery!</p>
+            </div>
+
+            <a id="modal-dial-btn" href="tel:+918943796622" class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-full text-sm transition shadow-lg mb-2">
+                <i class="fa-solid fa-phone mr-2"></i> Confirm & Dial +91 89437 96622
+            </a>
+            
+            <button onclick="closeModal('call-modal')" class="text-xs text-gray-500 hover:underline">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- WRITE REVIEW MODAL -->
+    <div id="review-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-xl max-w-md w-full p-6 shadow-2xl relative border border-gray-200">
+            <button onclick="toggleReviewModal()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Write a Romantic Review for Athul</h3>
+            <p class="text-xs text-gray-500 mb-4">Rate his lipstick removing efficiency!</p>
+
+            <form onsubmit="submitGirlfriendReview(event)" class="space-y-3">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Your Name / Nickname</label>
+                    <input type="text" id="review-author" required placeholder="His Favorite Girl" class="w-full border border-gray-300 rounded p-2 text-xs focus:ring-2 focus:ring-amazon-orange focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Review Headline</label>
+                    <input type="text" id="review-headline" required placeholder="Best Boyfriend & Lipstick Remover Ever!" class="w-full border border-gray-300 rounded p-2 text-xs focus:ring-2 focus:ring-amazon-orange focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Review Message</label>
+                    <textarea id="review-body" rows="3" required placeholder="Tell Athul how much you loved his kisses..." class="w-full border border-gray-300 rounded p-2 text-xs focus:ring-2 focus:ring-amazon-orange focus:outline-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-amazon-yellow hover:bg-amazon-yellowHover text-gray-900 font-bold py-2 rounded text-xs transition shadow border border-yellow-600">
+                    Submit Review to Athul
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Global App State
-        let currentUser = null;
-        let videoWatchedComplete = false;
-        let language = 'EN'; // 'EN' or 'ML'
-        
-        // YouTube Player variables
-        let ytPlayer = null;
-        let maxTimeWatched = 0;
-        let videoProgressInterval = null;
-        let isSeekingWarningVisible = false;
+        // Switch gallery images smoothly
+        function switchImage(imgSrc, btnElement) {
+            const mainImg = document.getElementById('main-product-image');
+            mainImg.src = imgSrc;
 
-        // Quiz State
-        let currentQuestionIndex = 0;
-        let userAnswers = {}; // questionId -> optionIndex
-        let shuffledQuestions = [];
+            // Highlight thumbnail
+            document.querySelectorAll('.thumb-btn').forEach(btn => {
+                btn.classList.remove('border-amazon-orange');
+                btn.classList.add('border-gray-200');
+            });
+            btnElement.classList.remove('border-gray-200');
+            btnElement.classList.add('border-amazon-orange');
 
-        /* ... existing code ... */
-        // rawQuestions array remains defined as existing questions dataset
-        const rawQuestions = [
-            {
-                id: 1,
-                questionEN: "What was the name of the first startup co-founded and successfully sold by Sharique Samsudheen at age 21?",
-                questionML: "21-ാം വയസ്സിൽ ഷാരിഖ് സംസുദ്ധീൻ സഹസ്ഥാപകനായി നിർമ്മിച്ച് വിജയകരമായി വിറ്റ സ്റ്റാർട്ടപ്പിന്റെ പേരെന്തായിരുന്നു?",
-                optionsEN: ["Dyscover", "Marketfeed", "Indian Grahak", "InFrames"],
-                optionsML: ["ഡിസ്കവർ (Dyscover)", "മാർക്കറ്റ്‌ഫീഡ് (Marketfeed)", "ഇന്ത്യൻ ഗ്രാഹക് (Indian Grahak)", "ഇൻഫ്രെയിംസ് (InFrames)"],
-                correctIndex: 0,
-                hintEN: "The name sounds like 'Discover', but spelled with a 'y'.",
-                hintML: "'Discover' എന്ന ഇംഗ്ലീഷ് വാക്കിന് സമാനമായ 'y' ചേർത്ത പേര്."
-            },
-            {
-                id: 2,
-                questionEN: "Which prestigious institute did Sharique attend when pursuing his engineering degree?",
-                questionML: "എഞ്ചിനീയറിംഗ് ബിരുദം പഠിക്കുമ്പോൾ ഷാരിഖ് ഏത് പ്രശസ്തമായ സ്ഥാപനത്തിലാണ് പഠിച്ചത്?",
-                optionsEN: ["NIT Jamshedpur", "IIT Bombay", "CUSAT", "NIT Calicut"],
-                optionsML: ["എൻ.ഐ.ടി ജംഷഡ്പൂർ (NIT Jamshedpur)", "ഐ.ഐ.ടി ബോംബെ (IIT Bombay)", "കുസാറ്റ് (CUSAT)", "എൻ.ഐ.ടി കോഴിക്കോട് (NIT Calicut)"],
-                correctIndex: 0,
-                hintEN: "An NIT institute located in Jharkhand state.",
-                hintML: "ഝാർഖണ്ഡ് സംസ്ഥാനത്ത് സ്ഥിതി ചെയ്യുന്ന ഒരു എൻ.ഐ.ടി."
-            },
-            {
-                id: 3,
-                questionEN: "Which specific branch of engineering did Sharique study at NIT?",
-                questionML: "എൻ.ഐ.ടിയിൽ ഏത് സ്പെഷ്യലൈസ്ഡ് എഞ്ചിനീയറിംഗ് ബ്രാഞ്ചിലാണ് ഷാരിഖ് പഠിച്ചത്?",
-                optionsEN: ["Production & Industrial Engineering", "Computer Science", "Mechanical Engineering", "Electronics"],
-                optionsML: ["പ്രൊഡക്ഷൻ & ഇൻഡസ്ട്രിയൽ എഞ്ചിനീയറിംഗ്", "കംപ്യൂട്ടർ സയൻസ്", "മെക്കാനിക്കൽ എഞ്ചിനീയറിംഗ്", "ഇലക്ട്രോണിക്സ്"],
-                correctIndex: 0,
-                hintEN: "A branch focused on manufacturing, operations, and industrial systems.",
-                hintML: "ഉൽപ്പാദനവും ഇൻഡസ്ട്രിയൽ സിസ്റ്റങ്ങളുമായി ബന്ധപ്പെട്ട ബ്രാഞ്ച്."
-            },
-            {
-                id: 4,
-                questionEN: "What was the core business model of Dyscover?",
-                questionML: "ഡിസ്കവറിന്റെ (Dyscover) പ്രധാന ബിസിനസ്സ് മോഡൽ എന്തായിരുന്നു?",
-                optionsEN: ["Hyperlocal marketplace for local shops", "International B2B SaaS platform", "Cryptocurrency exchange", "Online gaming application"],
-                optionsML: ["പ്രാദേശിക കടകൾക്കായുള്ള ഹൈപ്പർലോക്കൽ മാർക്കറ്റ് പ്ലേസ്", "അന്താരാഷ്ട്ര ബി2ബി സോഫ്റ്റ്‌വെയർ", "ക്രിപ്റ്റോകറൻസി എക്സ്ചേഞ്ച്", "ഓൺലൈൻ ഗെയിമിംഗ് ആപ്പ്"],
-                correctIndex: 0,
-                hintEN: "Connecting local brick-and-mortar merchants with local consumers online.",
-                hintML: "പ്രാദേശിക വ്യാപാരികളെ അടുത്തുള്ള ഉപഭോക്താക്കളുമായി ബന്ധിപ്പിച്ചത്."
-            },
-            {
-                id: 5,
-                questionEN: "Which enterprise company acquired Dyscover?",
-                questionML: "ഡിസ്കവറിനെ ഏറ്റെടുത്ത കമ്പനി ഏതാണ്?",
-                optionsEN: ["Indian Grahak", "Flipkart", "Dunzo", "Royal Brothers"],
-                optionsML: ["ഇന്ത്യൻ ഗ്രാഹക് (Indian Grahak)", "ഫ്ലിപ്കാർട്ട് (Flipkart)", "ഡൺസോ (Dunzo)", "റോയൽ ബ്രദേഴ്സ് (Royal Brothers)"],
-                correctIndex: 0,
-                hintEN: "A grocery and e-commerce startup with 'Grahak' in its title.",
-                hintML: "പേരിൽ 'ഗ്രാഹക്' എന്ന വാക്കുള്ള ഇ-കൊമേഴ്സ് കമ്പനി."
-            },
-            {
-                id: 6,
-                questionEN: "In which Kerala city did Sharique launch and build Dyscover?",
-                questionML: "കേരളത്തിലെ ഏത് നഗരത്തിലാണ് ഷാരിഖ് ഡിസ്കവർ ആരംഭിച്ച് വളർത്തിയത്?",
-                optionsEN: ["Kozhikode (Calicut)", "Kochi", "Thiruvananthapuram", "Kannur"],
-                optionsML: ["കോഴിക്കോട് (Calicut)", "കൊച്ചി", "തിരുവനന്തപുരം", "കണ്ണൂർ"],
-                correctIndex: 0,
-                hintEN: "Known as the City of Spices and Malabar's trade hub.",
-                hintML: "മലബാറിന്റെ വാണിജ്യ കേന്ദ്രമായ നഗരം."
-            },
-            {
-                id: 7,
-                questionEN: "What early marketing tactic was used by the founders to gain Dyscover's first users?",
-                questionML: "ഡിസ്കവറിന്റെ ആദ്യ ഉപഭോക്താക്കളെ നേടാൻ സഹസ്ഥാപകർ ഉപയോഗിച്ച പ്രമോഷൻ രീതി എന്തായിരുന്നു?",
-                optionsEN: ["Direct flyer distribution & local visits", "Television ads", "Celebrity endorsements", "Paid Google Ads only"],
-                optionsML: ["നേരിട്ടുള്ള ഫ്ലയർ വിതരണവും സന്ദർശനങ്ങളും", "ടെലിവിഷൻ പരസ്യങ്ങൾ", "സെലിബ്രിറ്റി പരസ്യങ്ങൾ", "ഗൂഗിൾ ആഡ്സ് മാത്രം"],
-                correctIndex: 0,
-                hintEN: "Grassroots offline promo through printed paper pamphlets.",
-                hintML: "കടലാസ് നോട്ടിസുകൾ കൈമാറിയുള്ള പ്രചാരണം."
-            },
-            {
-                id: 8,
-                questionEN: "According to Sharique, what is significantly more important than just having an 'Idea' in entrepreneurship?",
-                questionML: "ഷാരിഖിന്റെ അഭിപ്രായത്തിൽ സംരംഭകത്വത്തിൽ വെറുമൊരു 'ആശയത്തേക്കാൾ' പ്രധാനം എന്താണ്?",
-                optionsEN: ["Relentless Execution", "Having millions in funding", "Having a fancy office", "Patent protection"],
-                optionsML: ["കൃത്യമായ പ്രവൃത്തിപഥത്തിൽ എത്തിക്കൽ (Execution)", "കോടികളുടെ ഫണ്ടിംഗ്", "ആഡംബര ഓഫീസ്", "പേറ്റന്റുകൾ"],
-                correctIndex: 0,
-                hintEN: "Taking practical action and continuously building.",
-                hintML: "ആശയങ്ങളെ പ്രവൃത്തിപഥത്തിൽ എത്തിക്കുന്ന രീതി."
-            },
-            {
-                id: 9,
-                questionEN: "Before launching Dyscover, what media entity did Sharique co-found?",
-                questionML: "ഡിസ്കവറിന് മുൻപ് ഷാരിഖ് സഹസ്ഥാപകനായി തുടങ്ങിയ മീഡിയ സംരംഭം ഏതാണ്?",
-                optionsEN: ["InFrames Media", "Pixel Craft", "Calicut Studios", "Red Chillies"],
-                optionsML: ["ഇൻഫ്രെയിംസ് മീഡിയ (InFrames Media)", "പിക്സൽ ക്രാഫ്റ്റ്", "കാലിക്കറ്റ് സ്റ്റുഡിയോസ്", "റെഡ് ചില്ലീസ്"],
-                correctIndex: 0,
-                hintEN: "Contains the word 'Frames' in its brand name.",
-                hintML: "പേരിൽ 'Frames' എന്ന വാക്കുണ്ട്."
-            },
-            {
-                id: 10,
-                questionEN: "How did Sharique's parents initially react to his decision to skip college placements for his startup?",
-                questionML: "ക്യാമ്പസ് പ്ലേസ്‌മെന്റുകളിൽ പങ്കെടുക്കാതിരുന്നപ്പോൾ മാതാപിതാക്കളുടെ ആദ്യ പ്രതികരണം എന്തായിരുന്നു?",
-                optionsEN: ["Anxious & worried about financial security", "Extremely thrilled", "Completely indifferent", "Fully unaware"],
-                optionsML: ["ആശങ്കയും ഭാവിയെക്കുറിച്ചുള്ള ഭയവും", "വളരെ സന്തോഷവതികൾ", "ശ്രദ്ധിച്ചതേയില്ല", "വിവരം അറിഞ്ഞില്ല"],
-                correctIndex: 0,
-                hintEN: "Typical parental concern over stable job security.",
-                hintML: "സുരക്ഷിതമായ ജോലിയെക്കുറിച്ചുള്ള രക്ഷിതാക്കളുടെ ആശങ്ക."
-            },
-            {
-                id: 11,
-                questionEN: "Which post-acquisition role did Sharique take at Royal Brothers?",
-                questionML: "ഡിസ്കവർ വിറ്റ ശേഷം റോയൽ ബ്രദേഴ്സിൽ ഷാരിഖ് ഏത് തസ്തികയിലാണ് പ്രവർത്തിച്ചത്?",
-                optionsEN: ["Head of Business Development", "Chief Technology Officer", "Lead UI Designer", "Accountant"],
-                optionsML: ["ഹെഡ് ഓഫ് ബിസിനസ്സ് ഡെവലപ്‌മെന്റ്", "ചീഫ് ടെക്നോളജി ഓഫീസർ", "ലീഡ് ഡിസൈനർ", "അക്കൗണ്ടന്റ്"],
-                correctIndex: 0,
-                hintEN: "Responsible for leading business growth and expansion.",
-                hintML: "ബിസിനസ്സ് വികസനത്തിന് നേതൃത്വം നൽകിയ തസ്തിക."
-            },
-            {
-                id: 12,
-                questionEN: "What is the name of Sharique's popular financial learning startup today?",
-                questionML: "ഷാരിഖ് നിലവിൽ നടത്തുന്ന പ്രശസ്തമായ ഫിനാൻഷ്യൽ സ്റ്റാർട്ടപ്പിന്റെ പേരെന്താണ്?",
-                optionsEN: ["Marketfeed", "Zerodha", "Groww", "AngelOne"],
-                optionsML: ["മാർക്കറ്റ്‌ഫീഡ് (Marketfeed)", "സെറോദ (Zerodha)", "ഗ്രോ (Groww)", "എയ്ഞ്ചൽ വൺ (AngelOne)"],
-                correctIndex: 0,
-                hintEN: "Combines 'Market' with 'feed' for trading knowledge.",
-                hintML: "'Market' ഉം 'feed' ഉം ചേർന്ന പേര്."
-            },
-            {
-                id: 13,
-                questionEN: "What was a major operational challenge Dyscover faced in its early growth phase?",
-                questionML: "തുടക്കത്തിൽ ഡിസ്കവർ നേരിട്ട പ്രധാന പ്രവർത്തന വെല്ലുവിളി എന്തായിരുന്നു?",
-                optionsEN: ["Onboarding traditional shops & logistics management", "Lack of mobile connectivity", "Cloud server crashes", "Government taxation"],
-                optionsML: ["പരമ്പരാഗത കടക്കാരെ ചേര്ക്കുന്നതും ഡെലിവറി മാനേജ്മെന്റും", "മൊബൈൽ നെറ്റ്‌വർക്ക് ഇല്ലാത്തത്", "സെർവർ തകരാറുകൾ", "നികുതി പ്രശ്നങ്ങൾ"],
-                correctIndex: 0,
-                hintEN: "Convincing store owners and managing door-to-door deliveries.",
-                hintML: "വ്യാപാരികളെ സമ്മതിപ്പിക്കുന്നതും ഡെലിവറിയും."
-            },
-            {
-                id: 14,
-                questionEN: "How was Dyscover funded in its early initial stages before acquisition?",
-                questionML: "ഏറ്റെടുക്കലിന് മുൻപുള്ള തുടക്കകാലത്ത് ഡിസ്കവറിനായി ഫണ്ട് കണ്ടെത്തിയത് എങ്ങനെയാണ്?",
-                optionsEN: ["Personal savings & bootstrapping", "Large Series A venture capital", "Heavy bank loans", "Government grants"],
-                optionsML: ["സ്വന്തം സമ്പാദ്യവും ബൂട്ട്‌സ്ട്രാപ്പിംഗും", "വലിയ വെഞ്ച്വർ ക്യാപിറ്റൽ", "ബാങ്ക് വായ്പകൾ", "സർക്കാർ ഗ്രാന്റ്"],
-                correctIndex: 0,
-                hintEN: "Self-funded using lean bootstrapping methods.",
-                hintML: "സ്വന്തം സമ്പാദ്യം ഉപയോഗിച്ച് ബൂട്ട്‌സ്ട്രാപ്പ് ചെയ്തു."
-            },
-            {
-                id: 15,
-                questionEN: "Why was Indian Grahak keen to acquire Dyscover?",
-                questionML: "ഇന്ത്യൻ ഗ്രാഹക് ഡിസ്കവറിനെ ഏറ്റെടുക്കാൻ എന്തുകൊണ്ട് താല്പര്യം കാണിച്ചു?",
-                optionsEN: ["Established local seller network & active user footprint in Kozhikode", "Dyscover's office building", "Dyscover's patents", "Dyscover's hardware"],
-                optionsML: ["കോഴിക്കോട്ടെ സജീവമായ വ്യാപാരി ശൃംഖലയും ഉപഭോക്താക്കളും", "ഓഫീസ് കെട്ടിടത്തിനായി", "പേറ്റന്റുകൾക്കായി", "ഹാർഡ്‌വെയറുകൾക്കായി"],
-                correctIndex: 0,
-                hintEN: "Dyscover's strong local presence and merchant relations.",
-                hintML: "കോഴിക്കോട്ടെ ശക്തമായ വ്യാപാരി ശൃംഖലയും കസ്റ്റമർ ബേസും."
-            },
-            {
-                id: 16,
-                questionEN: "What local advantage or 'X-factor' helped Dyscover succeed against outside rivals?",
-                questionML: "പുറത്തുനിന്നുള്ള എതിരാളികളെക്കാൾ ഡിസ്കവറിന് മുൻതൂക്കം നൽകിയ പ്രധാന ഘടകം എന്തായിരുന്നു?",
-                optionsEN: ["Deep local network and trust with Kozhikode merchants", "Millions of advertising budgets", "International tie-ups", "Monopoly status"],
-                optionsML: ["പ്രാദേശിക വ്യാപാരികളുമായുള്ള വിശ്വാസവും ബന്ധവും", "കോടികളുടെ പരസ്യ ബജറ്റ്", "അന്താരാഷ്ട്ര പങ്കാളിത്തം", "മൊണോപ്പോളി"],
-                correctIndex: 0,
-                hintEN: "Rooted understanding of local business culture and merchant trust.",
-                hintML: "നാട്ടിലെ ബിസിനസ്സ് രീതികളെക്കുറിച്ചുള്ള അറിവും വിശ്വാസവും."
-            },
-            {
-                id: 17,
-                questionEN: "What advice does Sharique emphasize for young people with business ideas?",
-                questionML: "ബിസിനസ്സ് ആശയം മനസ്സിലുള്ള ചെറുപ്പക്കാരോട് ഷാരിഖ് നൽകുന്ന ഉപദേശം എന്താണ്?",
-                optionsEN: ["Start building immediately & test with real users", "Wait for big VC funding", "Complete a master's degree first", "Keep the idea secret forever"],
-                optionsML: ["ഉടൻ തന്നെ നിർമ്മിച്ച് വിപണിയിൽ പരീക്ഷിക്കുക", "വലിയ ഫണ്ടിംഗിനായി കാത്തിരിക്കുക", "എം.ബി.എ കഴിഞ്ഞിട്ട് തുടങ്ങുക", "ഐഡിയ രഹസ്യമാക്കി വെക്കുക"],
-                correctIndex: 0,
-                hintEN: "Don't delay—begin building and launching directly.",
-                hintML: "താമസിപ്പിക്കാതെ ഉടൻ തന്നെ ആരംഭിക്കുക."
-            },
-            {
-                id: 18,
-                questionEN: "How does Sharique view failures in an entrepreneurial journey?",
-                questionML: "സംരംഭകത്വത്തിലെ പരാജയങ്ങളെ ഷാരിഖ് എങ്ങനെയാണ് കാണുന്നത്?",
-                optionsEN: ["Essential stepping stones for future growth", "The end of a career", "Shameful events", "A complete waste of effort"],
-                optionsML: ["ഭാവി വിജയത്തിനായുള്ള പാഠങ്ങളും ചവിട്ടുപടികളും", "കരിയറിന്റെ അവസാനം", "നാണക്കേടുണ്ടാക്കുന്ന കാര്യം", "സമയനഷ്ടം"],
-                correctIndex: 0,
-                hintEN: "Lessons that strengthen wisdom and resilience.",
-                hintML: "വളർച്ചയ്ക്കായുള്ള അനുഭവങ്ങളും പാഠങ്ങളും."
-            },
-            {
-                id: 19,
-                questionEN: "In the video, what does Sharique define as the true 'Fortune' gained at 21?",
-                questionML: "21-ാം വയസ്സിൽ താൻ നേടിയ യഥാർത്ഥ 'സമ്പത്ത്' എന്ന് ഷാരിഖ് വിശേഷിപ്പിക്കുന്നത് എന്തിനെയാണ്?",
-                optionsEN: ["Invaluable experience, networks, confidence, & independence", "Millions in bank accounts only", "Luxury cars", "Media popularity"],
-                optionsML: ["വിലമതിക്കാനാവാത്ത അനുഭവം, നെറ്റ്‌വർക്ക്, ആത്മവിശ്വാസം", "ബാങ്ക് ബാലൻസ് മാത്രം", "ആഡംബര കാറുകൾ", "പ്രശസ്തി മാത്രം"],
-                correctIndex: 0,
-                hintEN: "Intangible growth: skills, wisdom, resilience, and confidence.",
-                hintML: "പണത്തിനപ്പുറം ലഭിച്ച അനുഭവസമ്പത്തും ആത്മവിശ്വാസവും."
-            },
-            {
-                id: 20,
-                questionEN: "How did Dyscover convince traditional shops in Kozhikode to join their online platform?",
-                questionML: "കോഴിക്കോട്ടെ പരമ്പരാഗത വ്യാപാരികളെ ആപ്പിൽ ചേരാൻ എങ്ങനെയാണ് ബോധ്യപ്പെടുത്തിയത്?",
-                optionsEN: ["Door-to-door direct shop visits explaining digital benefits", "Sending postcards", "Emailing store owners", "Radio advertisements"],
-                optionsML: ["കടകളിൽ നേരിട്ട് ചെന്ന് നേട്ടങ്ങൾ വിശദീകരിച്ച്", "തപാൽ കാർഡുകൾ വഴി", "ഇമെയിലുകൾ അയച്ച്", "റേഡിയോ പരസ്യം വഴി"],
-                correctIndex: 0,
-                hintEN: "Face-to-face personal interaction directly inside local shops.",
-                hintML: "നേരിട്ട് കടകളിൽ ചെന്ന് വ്യാപാരികളോട് സംസാരിച്ച്."
-            },
-            {
-                id: 21,
-                questionEN: "What happened to Dyscover's operational brand post-acquisition?",
-                questionML: "ഏറ്റെടുക്കലിന് ശേഷം ഡിസ്കവറിന്റെ പ്രവർത്തനങ്ങൾക്ക് എന്ത് സംഭവിച്ചു?",
-                optionsEN: ["Merged into Indian Grahak's unified platform", "Continued as an independent competitor", "Closed down abruptly", "Converted into a game app"],
-                optionsML: ["ഇന്ത്യൻ ഗ്രാഹക്കിന്റെ പ്ലാറ്റ്‌ഫോമിലേക്ക് ലയിച്ചു", "സ്വതന്ത്രമായി മത്സരിച്ചു", "പെട്ടെന്ന് പൂട്ടിപ്പോയി", "ഗെയിം ആപ്പായി മാറി"],
-                correctIndex: 0,
-                hintEN: "Integrated directly into the buyer's existing operations.",
-                hintML: "വാങ്ങിയ കമ്പനിയുടെ ഭാഗമായി മാറി."
-            },
-            {
-                id: 22,
-                questionEN: "What was Sharique's age when he completed his startup sale exit?",
-                questionML: "സ്റ്റാർട്ടപ്പ് വിൽക്കുമ്പോൾ ഷാരിഖിന്റെ പ്രായം എത്രയായിരുന്നു?",
-                optionsEN: ["21 years old", "25 years old", "18 years old", "30 years old"],
-                optionsML: ["21 വയസ്സ്", "25 വയസ്സ്", "18 വയസ്സ്", "30 വയസ്സ്"],
-                correctIndex: 0,
-                hintEN: "Featured prominently in the video title!",
-                hintML: "വീഡിയോയുടെ തലക്കെട്ടിൽ തന്നെയുള്ള പ്രായം!"
-            },
-            {
-                id: 23,
-                questionEN: "Which of the following was NOT a post-exit milestone for Sharique?",
-                questionML: "ഡിസ്കവർ വിറ്റ ശേഷം ഷാരിഖിന്റെ ജീവിതത്തിൽ ഉണ്ടാകാത്ത കാര്യം ഏതാണ്?",
-                optionsEN: ["Retiring permanently from work", "Working at Royal Brothers", "Founding Marketfeed", "Sharing lessons on YouTube"],
-                optionsML: ["ബിസിനസ്സിൽ നിന്ന് ശാശ്വതമായി വിരമിച്ചു", "റോയൽ ബ്രദേഴ്സിൽ ജോലി ചെയ്തു", "മാർക്കറ്റ്‌ഫീഡ് ആരംഭിച്ചു", "യൂട്യൂബിൽ പാഠങ്ങൾ പങ്കുവെച്ചു"],
-                correctIndex: 0,
-                hintEN: "He continued building new ventures rather than stopping work.",
-                hintML: "അദ്ദേഹം ജോലി ഉപേക്ഷിച്ച് വെറുതെ ഇരുന്നില്ല."
-            },
-            {
-                id: 24,
-                questionEN: "What key mindset does Sharique stress for cold-starting a business without funding?",
-                questionML: "ഫണ്ടില്ലാതെ ബിസിനസ്സ് ആരംഭിക്കുമ്പോൾ ആവശ്യമുള്ള പ്രധാന മനോഭാവം എന്താണ്?",
-                optionsEN: ["Resourcefulness, resilience, & direct customer connection", "Waiting for angel investors", "Hiring expensive agencies", "Giving up early"],
-                optionsML: ["ലഭ്യമായ കാര്യങ്ങൾ വിവേകത്തോടെ ഉപയോഗിക്കലും ആത്മവിശ്വാസവും", "ഇൻവെസ്റ്റർമാർക്കായി കാത്തിരിക്കൽ", "വലിയ ഏജൻസികളെ ഏൽപ്പിക്കൽ", "പെട്ടെന്ന് ഉപേക്ഷിക്കൽ"],
-                correctIndex: 0,
-                hintEN: "Being frugal, adaptable, and talking directly to customers.",
-                hintML: "പ്രതിസന്ധികളിൽ തളരാതെ തന്ത്രപരമായി പ്രവർത്തിക്കുക."
-            },
-            {
-                id: 25,
-                questionEN: "What key lesson regarding co-founders and team building did Sharique emphasize?",
-                questionML: "സഹസ്ഥാപകരെക്കുറിച്ചും ടീം രൂപീകരണത്തെക്കുറിച്ചും ഷാരിഖ് നൽകുന്ന പ്രധാന പാഠം എന്താണ്?",
-                optionsEN: ["Aligning vision & complementary skills with committed partners", "Working strictly alone", "Giving equity randomly", "Avoiding agreements"],
-                optionsML: ["ഒരേ ലക്ഷ്യമുള്ള കഴിവുള്ള പങ്കാളികളുമായി ഒന്നിച്ചുനിൽക്കുക", "ഒറ്റയ്ക്ക് മാത്രം പ്രവർത്തിക്കുക", "ആർക്കും ഇക്വിറ്റി കൊടുക്കുക", "കരാറുകൾ ഒഴിവാക്കുക"],
-                correctIndex: 0,
-                hintEN: "Building a team with shared commitment and diverse skills.",
-                hintML: "വ്യത്യസ്ത കഴിവുകളുള്ള പ്രതിബദ്ധതയുള്ള ടീം ഒന്നിച്ചുനിൽക്കണം."
-            }
-        ];
-
-        window.addEventListener('load', () => {
-            checkAuth();
-        });
-
-        function checkAuth() {
-            if (!currentUser) {
-                showView('loginView');
-                document.getElementById('userBadge').classList.add('hidden');
-                document.getElementById('langToggleBtn').classList.add('hidden');
-            } else {
-                document.getElementById('userBadge').classList.remove('hidden');
-                document.getElementById('langToggleBtn').classList.remove('hidden');
-                document.getElementById('loggedInUserName').textContent = currentUser;
-            }
+            // Trigger heart floating animation on click
+            createHeart(btnElement);
         }
 
-        function handleLogin(e) {
+        // Mode Selector Widget
+        function selectMode(btn, modeName) {
+            document.querySelectorAll('.mode-btn').forEach(b => {
+                b.classList.remove('border-rose-500', 'bg-rose-50', 'text-rose-700');
+                b.classList.add('border-gray-200', 'bg-white', 'text-gray-700');
+            });
+            btn.classList.remove('border-gray-200', 'bg-white', 'text-gray-700');
+            btn.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-700');
+
+            document.getElementById('selected-mode-text').innerText = `Selected: ${modeName} Mode (Customized lipstick removal precision!)`;
+            createHeart(btn);
+        }
+
+        // Add to Cart Action
+        function handleAddToCart(event) {
+            const cartCount = document.getElementById('cart-count');
+            let current = parseInt(cartCount.innerText);
+            cartCount.innerText = current + 1;
+
+            createHeart(event.currentTarget);
+            playCuteChime();
+
+            // Floating Toast Notification
+            showToast('💖 Athul added to your Heart Cart! Ready for kisses.');
+        }
+
+        // Buy Now direct call launcher & modal
+        function handleBuyNowCall(event) {
+            // Show romantic overlay popup
+            const modal = document.getElementById('call-modal');
+            modal.classList.remove('hidden');
+
+            createMultipleHearts(event.clientX, event.clientY);
+            playCuteChime();
+
+            // Allow the tel: protocol to trigger automatically
+            // Location change to tel link
+            setTimeout(() => {
+                window.location.href = 'tel:+918943796622';
+            }, 600);
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function toggleReviewModal() {
+            const modal = document.getElementById('review-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Dynamically append new customer review
+        function submitGirlfriendReview(e) {
             e.preventDefault();
-            const u = document.getElementById('usernameInput').value.trim();
-            const p = document.getElementById('passwordInput').value.trim();
+            const author = document.getElementById('review-author').value;
+            const headline = document.getElementById('review-headline').value;
+            const body = document.getElementById('review-body').value;
 
-            const errorBanner = document.getElementById('loginError');
+            const reviewsContainer = document.getElementById('reviews-container');
 
-            if (u.toLowerCase() === 'athul' && p === 'athul123') {
-                currentUser = 'athul';
-                errorBanner.classList.add('hidden');
-                checkAuth();
-                startVideoModule();
-            } else {
-                errorBanner.classList.remove('hidden');
-                document.getElementById('loginErrorText').textContent = 'Invalid credentials. Please enter valid student credentials.';
-            }
-        }
-
-        function logout() {
-            currentUser = null;
-            videoWatchedComplete = false;
-            if (ytPlayer && ytPlayer.stopVideo) {
-                ytPlayer.stopVideo();
-            }
-            checkAuth();
-        }
-
-        function showView(viewId) {
-            const views = ['loginView', 'videoView', 'decisionView', 'examView', 'resultView', 'certificateView'];
-            views.forEach(v => {
-                const el = document.getElementById(v);
-                if (v === viewId) {
-                    el.classList.remove('hidden');
-                } else {
-                    el.classList.add('hidden');
-                }
-            });
-        }
-
-        function startVideoModule() {
-            showView('videoView');
-            maxTimeWatched = 0;
-            videoWatchedComplete = false;
-            updateProgressBar(0);
-
-            if (!ytPlayer) {
-                // Initialize YouTube IFrame Player with nocookie host & origin parameters to fix Error 153
-                ytPlayer = new YT.Player('youtubePlayer', {
-                    videoId: '1WMM2x-UtB4',
-                    host: 'https://www.youtube-nocookie.com',
-                    playerVars: {
-                        'autoplay': 0,
-                        'controls': 0,          // Disable default controls
-                        'disablekb': 1,         // Disable keyboard shortcuts
-                        'enablejsapi': 1,       // Enable JS API
-                        'origin': window.location.origin || '*',
-                        'widget_referrer': window.location.href,
-                        'rel': 0,               // Disable related videos
-                        'fs': 1,                // Enable fullscreen
-                        'playsinline': 1
-                    },
-                    events: {
-                        'onReady': onPlayerReady,
-                        'onStateChange': onPlayerStateChange,
-                        'onPlaybackRateChange': onPlaybackRateChange,
-                        'onError': onPlayerError
-                    }
-                });
-            } else {
-                ytPlayer.seekTo(0);
-                ytPlayer.playVideo();
-            }
-
-            startProgressMonitoring();
-        }
-
-        function onPlayerError(event) {
-            console.warn("YouTube Player Event Notice:", event.data);
-            const warningEl = document.getElementById('seekWarning');
-            if (warningEl) {
-                warningEl.className = "absolute top-4 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg border border-neutral-700 flex items-center space-x-2 z-10";
-                warningEl.innerHTML = '<i class="fa-solid fa-circle-exclamation text-amber-400"></i> <span>If video fails to load, please check browser iframe permissions.</span>';
-                warningEl.classList.remove('hidden');
-            }
-        }
-
-        function onPlayerReady(event) {
-            // Force 1x playback rate
-            if (ytPlayer && ytPlayer.setPlaybackRate) {
-                ytPlayer.setPlaybackRate(1);
-            }
-            document.getElementById('playbackStatus').textContent = "Status: Ready to play";
-        }
-
-        function onPlaybackRateChange(event) {
-            // Strictly enforce 1x speed
-            if (event.data !== 1 && ytPlayer && ytPlayer.setPlaybackRate) {
-                ytPlayer.setPlaybackRate(1);
-            }
-        }
-
-        function onPlayerStateChange(event) {
-            const statusText = document.getElementById('playbackStatus');
-            const playBtnText = document.getElementById('playText');
-            const playIcon = document.getElementById('playIcon');
-
-            if (event.data === YT.PlayerState.PLAYING) {
-                statusText.textContent = "Status: Playing";
-                playBtnText.textContent = "Pause Video";
-                playIcon.className = "fa-solid fa-pause";
-            } else if (event.data === YT.PlayerState.PAUSED) {
-                statusText.textContent = "Status: Paused";
-                playBtnText.textContent = "Resume Video";
-                playIcon.className = "fa-solid fa-play";
-            } else if (event.data === YT.PlayerState.ENDED) {
-                statusText.textContent = "Status: Completed";
-                handleVideoCompleted();
-            }
-        }
-
-        function toggleCustomPlay() {
-            if (!ytPlayer || !ytPlayer.getPlayerState) return;
-            const state = ytPlayer.getPlayerState();
-            if (state === YT.PlayerState.PLAYING) {
-                ytPlayer.pauseVideo();
-            } else {
-                ytPlayer.playVideo();
-            }
-        }
-
-        function startProgressMonitoring() {
-            if (videoProgressInterval) clearInterval(videoProgressInterval);
-
-            videoProgressInterval = setInterval(() => {
-                if (!ytPlayer || typeof ytPlayer.getCurrentTime !== 'function') return;
-
-                const currentTime = ytPlayer.getCurrentTime();
-                const duration = ytPlayer.getDuration();
-
-                if (!duration || duration <= 0) return;
-
-                // Anti-skipping check: if user seeks past maxTimeWatched + 2.5 seconds, pull them back
-                if (currentTime > maxTimeWatched + 2.5) {
-                    ytPlayer.seekTo(maxTimeWatched, true);
-                    showSeekWarning();
-                } else {
-                    if (currentTime > maxTimeWatched) {
-                        maxTimeWatched = currentTime;
-                    }
-                }
-
-                // Update Progress percentage
-                const pct = Math.min(100, Math.floor((maxTimeWatched / duration) * 100));
-                updateProgressBar(pct);
-
-                // Auto finish detection
-                if (duration > 0 && currentTime >= duration - 1) {
-                    handleVideoCompleted();
-                }
-
-            }, 400);
-        }
-
-        function showSeekWarning() {
-            if (isSeekingWarningVisible) return;
-            isSeekingWarningVisible = true;
-            const warningEl = document.getElementById('seekWarning');
-            warningEl.classList.remove('hidden');
-            setTimeout(() => {
-                warningEl.classList.add('hidden');
-                isSeekingWarningVisible = false;
-            }, 3000);
-        }
-
-        function updateProgressBar(percent) {
-            document.getElementById('progressBar').style.width = percent + '%';
-            document.getElementById('progressText').textContent = percent + '%';
-        }
-
-        function handleVideoCompleted() {
-            if (videoProgressInterval) clearInterval(videoProgressInterval);
-            videoWatchedComplete = true;
-            updateProgressBar(100);
-            
-            setTimeout(() => {
-                showView('decisionView');
-            }, 800);
-        }
-
-        function rewatchVideo() {
-            showView('videoView');
-            if (ytPlayer && ytPlayer.seekTo) {
-                maxTimeWatched = 0;
-                updateProgressBar(0);
-                ytPlayer.seekTo(0);
-                ytPlayer.playVideo();
-                startProgressMonitoring();
-            }
-        }
-
-        function startExam() {
-            userAnswers = {};
-            currentQuestionIndex = 0;
-
-            shuffledQuestions = shuffleArray([...rawQuestions]).map(q => {
-                const combinedOptions = q.optionsEN.map((optEN, idx) => ({
-                    en: optEN,
-                    ml: q.optionsML[idx],
-                    isCorrect: idx === q.correctIndex
-                }));
-
-                const shuffledOpts = shuffleArray(combinedOptions);
-
-                return {
-                    id: q.id,
-                    questionEN: q.questionEN,
-                    questionML: q.questionML,
-                    options: shuffledOpts,
-                    hintEN: q.hintEN,
-                    hintML: q.hintML
-                };
-            });
-
-            showView('examView');
-            renderQuestion();
-        }
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-
-        function toggleLanguage() {
-            language = (language === 'EN') ? 'ML' : 'EN';
-            document.getElementById('currentLangLabel').textContent = `Language: ${language}`;
-            document.getElementById('examLangBtnLabel').textContent = `${language}`;
-
-            if (!document.getElementById('examView').classList.contains('hidden')) {
-                renderQuestion();
-            }
-        }
-
-        function toggleHint() {
-            const hintBox = document.getElementById('hintBox');
-            hintBox.classList.toggle('hidden');
-        }
-
-        function renderQuestion() {
-            document.getElementById('hintBox').classList.add('hidden');
-
-            const q = shuffledQuestions[currentQuestionIndex];
-            const total = shuffledQuestions.length;
-
-            document.getElementById('examCounter').textContent = `Q ${currentQuestionIndex + 1} / ${total}`;
-
-            const answeredCount = Object.keys(userAnswers).length;
-            const progressPct = Math.round((answeredCount / total) * 100);
-            document.getElementById('examProgressBar').style.width = `${progressPct}%`;
-            document.getElementById('examProgressPercent').textContent = `${progressPct}% Answered (${answeredCount}/${total})`;
-
-            document.getElementById('questionTextEN').textContent = `${currentQuestionIndex + 1}. ${q.questionEN}`;
-            document.getElementById('questionTextML').textContent = q.questionML;
-
-            document.getElementById('hintTextEN').textContent = q.hintEN;
-            document.getElementById('hintTextML').textContent = q.hintML;
-
-            const container = document.getElementById('optionsContainer');
-            container.innerHTML = '';
-
-            const selectedOptionIdx = userAnswers[currentQuestionIndex];
-
-            q.options.forEach((opt, idx) => {
-                const isSelected = selectedOptionIdx === idx;
-
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.onclick = () => selectOption(idx);
-
-                btn.className = `w-full p-4 rounded-xl border text-left transition flex items-start space-x-3 ${
-                    isSelected 
-                        ? 'bg-black text-white border-black shadow-lg' 
-                        : 'bg-white hover:bg-neutral-100 border-neutral-300 text-neutral-900'
-                }`;
-
-                const letter = String.fromCharCode(65 + idx);
-
-                btn.innerHTML = `
-                    <div class="w-6 h-6 rounded-full border flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5 ${
-                        isSelected ? 'bg-white text-black border-white' : 'border-neutral-400 text-neutral-600'
-                    }">
-                        ${letter}
+            const newReviewHtml = `
+                <div class="space-y-2 border-b border-gray-100 pb-4 animate-fade-in">
+                    <div class="flex items-center gap-2">
+                        <div class="w-7 h-7 bg-rose-600 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                            ${author.charAt(0).toUpperCase()}
+                        </div>
+                        <span class="text-xs font-bold text-gray-900">${escapeHtml(author)}</span>
                     </div>
-                    <div class="flex-grow space-y-0.5">
-                        <p class="text-sm font-bold ${language === 'ML' ? 'hidden' : 'block'}">${opt.en}</p>
-                        <p class="text-xs font-malayalam ${language === 'EN' ? (isSelected ? 'text-neutral-200' : 'text-neutral-600') : 'text-sm font-bold'}">${opt.ml}</p>
+                    <div class="flex items-center gap-2 text-xs">
+                        <div class="flex text-amazon-orange">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="font-bold text-gray-900">${escapeHtml(headline)}</span>
                     </div>
-                `;
+                    <p class="text-xs text-gray-500">Reviewed Just Now</p>
+                    <span class="inline-block text-[10px] font-bold text-amazon-orange bg-orange-50 px-1.5 py-0.5 rounded border border-orange-200">
+                        Verified Girlfriend Review
+                    </span>
+                    <p class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+                        ${escapeHtml(body)}
+                    </p>
+                </div>
+            `;
 
-                container.appendChild(btn);
-            });
-
-            document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
-
-            if (currentQuestionIndex === total - 1) {
-                document.getElementById('nextBtn').classList.add('hidden');
-                document.getElementById('submitExamBtn').classList.remove('hidden');
-            } else {
-                document.getElementById('nextBtn').classList.remove('hidden');
-                document.getElementById('submitExamBtn').classList.add('hidden');
-            }
-        }
-
-        function selectOption(optionIndex) {
-            userAnswers[currentQuestionIndex] = optionIndex;
-            renderQuestion();
-        }
-
-        function nextQuestion() {
-            if (currentQuestionIndex < shuffledQuestions.length - 1) {
-                currentQuestionIndex++;
-                renderQuestion();
-            }
-        }
-
-        function prevQuestion() {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
-                renderQuestion();
-            }
-        }
-
-        function confirmSubmitExam() {
-            const answeredCount = Object.keys(userAnswers).length;
-            const total = shuffledQuestions.length;
-
-            if (answeredCount < total) {
-                const confirmUnanswered = window.confirm(`You have answered ${answeredCount} out of ${total} questions. Are you sure you want to submit?`);
-                if (!confirmUnanswered) return;
-            }
-
-            evaluateExam();
-        }
-
-        function evaluateExam() {
-            let score = 0;
-            const total = shuffledQuestions.length;
-
-            shuffledQuestions.forEach((q, qIdx) => {
-                const selectedOptIdx = userAnswers[qIdx];
-                if (selectedOptIdx !== undefined) {
-                    if (q.options[selectedOptIdx].isCorrect) {
-                        score++;
-                    }
-                }
-            });
-
-            showView('resultView');
-
-            const scoreEl = document.getElementById('scoreObtained');
-            const pctBadge = document.getElementById('percentageBadge');
-            const iconBox = document.getElementById('resultIconBox');
-            const titleEl = document.getElementById('resultTitle');
-            const subtitleEl = document.getElementById('resultSubtitle');
-
-            const passContainer = document.getElementById('passContainer');
-            const failContainer = document.getElementById('failContainer');
-
-            scoreEl.textContent = score;
-            const percentage = Math.round((score / total) * 100);
-            pctBadge.textContent = `${percentage}% Score`;
-
-            // Passing criteria: 20 out of 25 (80%)
-            if (score >= 20) {
-                iconBox.className = "w-20 h-20 rounded-full flex items-center justify-center mx-auto text-4xl shadow-xl bg-black text-amber-400 border-2 border-amber-400";
-                iconBox.innerHTML = '<i class="fa-solid fa-trophy"></i>';
-
-                titleEl.textContent = "Exam Passed!";
-                subtitleEl.textContent = "Excellent work! You demonstrated great knowledge of startup execution.";
-
-                passContainer.classList.remove('hidden');
-                failContainer.classList.add('hidden');
-
-                try {
-                    confetti({
-                        particleCount: 100,
-                        spread: 70,
-                        origin: { y: 0.6 }
-                    });
-                } catch(e){}
-
-            } else {
-                iconBox.className = "w-20 h-20 rounded-full flex items-center justify-center mx-auto text-4xl shadow-xl bg-neutral-100 text-black border-2 border-black";
-                iconBox.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-
-                titleEl.textContent = "Exam Not Passed";
-                subtitleEl.textContent = "You did not reach the passing mark of 20 out of 25.";
-
-                failContainer.classList.remove('hidden');
-                passContainer.classList.add('hidden');
-            }
-        }
-
-        function rewatchAndRetry() {
-            rewatchVideo();
-        }
-
-        function showCertificate() {
-            showView('certificateView');
+            reviewsContainer.insertAdjacentHTML('afterbegin', newReviewHtml);
+            toggleReviewModal();
+            showToast('🎉 Your review for Athul has been published!');
             
-            const today = new Date();
-            const dateStr = today.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
+            // Clear inputs
+            document.getElementById('review-author').value = '';
+            document.getElementById('review-headline').value = '';
+            document.getElementById('review-body').value = '';
+        }
 
-            document.getElementById('certIssueDate').textContent = dateStr;
-            
-            const score = document.getElementById('scoreObtained').textContent;
-            document.getElementById('certScoreDisplay').textContent = `Passed (${score}/25 Marks)`;
+        // Helper to escape HTML characters
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.innerText = text;
+            return div.innerHTML;
+        }
 
+        // Floating Hearts Particle Effect
+        function createHeart(targetElement) {
+            const rect = targetElement.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top;
+            createMultipleHearts(x, y, 3);
+        }
+
+        function createMultipleHearts(x, y, count = 8) {
+            for (let i = 0; i < count; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart text-rose-500 text-lg z-50';
+                heart.innerHTML = '<i class="fa-solid fa-heart"></i>';
+                
+                const offsetX = (Math.random() - 0.5) * 60;
+                heart.style.left = `${x + offsetX}px`;
+                heart.style.top = `${y}px`;
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 1800);
+            }
+        }
+
+        // Audio synthesizer chime using Web Audio API
+        function playCuteChime() {
             try {
-                confetti({
-                    particleCount: 150,
-                    spread: 90,
-                    origin: { y: 0.5 }
-                });
-            } catch(e){}
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
+                osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.2); // A5
+
+                gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                osc.start();
+                osc.stop(ctx.currentTime + 0.3);
+            } catch (e) {
+                // Audio Context fallback if blocked
+            }
+        }
+
+        // Custom Toast Notification
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-5 right-5 bg-gray-900 text-white text-xs sm:text-sm font-semibold px-4 py-3 rounded-xl shadow-2xl z-50 flex items-center gap-2 border border-rose-500/30 transition duration-300 transform translate-y-full';
+            toast.innerHTML = `<span class="text-rose-400">❤️</span> ${message}`;
+
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-full');
+            }, 50);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-full');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
         }
     </script>
 </body>
